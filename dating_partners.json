@@ -1,0 +1,16 @@
+{
+    "male": {
+        "1": {
+            "name": "Someone",
+            "race": 1,
+            "age": 24,
+            "field": 1,
+            "go_out": 1,
+            "date": 1,
+            "goal": 1,
+            "imprace": 1,
+            "imprelig": 1
+
+        }
+    }
+}
