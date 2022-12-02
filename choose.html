@@ -15,7 +15,8 @@
     <div class="max-auto">
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 40rem">
-                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3551fc00-ba1d-4f25-8ea7-7bdc03f0bb74/person.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221127%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221127T152458Z&X-Amz-Expires=86400&X-Amz-Signature=d08b8a997cbdc8d57ed68e7f9fb06fae8ebbbe168c857fbef42dfd25b6b3a46f&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22person.png%22&x-id=GetObject"
+                    class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Partner's Name</h5>
                     <p class="card-text">Partner's profile Information</p>
@@ -31,6 +32,33 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            const display = $("#display");
+
+            const buildCard = (partner) => {
+                return `<div class="card" style="width: 40rem">
+                            <img src="images/person.png" class="card-img-top" alt="Card image cap"> 
+                            <div class="card-body">
+                                <h5 class="card-title" id="${partner.id}">Partner's Name: ${partner.name}</h5>
+                                <p class="card-text">Partner's profile Information ${partner.field}</p>
+                                <p class="card-text">Partner's bio ${partner.bio}</p>
+                                <div class="d-flex justify-content-around">
+                                    <a href="#" class="btn btn-light border-danger">❌</a>
+                                    <a href="#" class="btn btn-light border-success">💚</a>
+                                </div>
+                            </div>
+                        </div>`
+            }
+
+            const displayCard = (partners) => {
+                partners.forEach((partner) => {
+                    display.append(buildCard(partner));
+                    // deleteCard() put function to delete the card
+                })
+            }
+        })
+    </script>
 </body>
 
 </html>
